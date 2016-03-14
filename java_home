@@ -1,0 +1,3 @@
+#!/bin/sh
+
+dirname "$(dirname "$(readlink -f "$(which javac || which java)")")"
