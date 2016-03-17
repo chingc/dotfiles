@@ -11,12 +11,12 @@ function is_osx {
 
 
 # This Script Location -- http://stackoverflow.com/questions/59895/
-MY_PROFILE_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROFILE_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 
 # Helpful Git Scripts -- https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
-source "${MY_PROFILE_HOME}/git-completion.sh"
-source "${MY_PROFILE_HOME}/git-prompt.sh"
+source "${PROFILE_HOME}/git-completion.sh"
+source "${PROFILE_HOME}/git-prompt.sh"
 
 
 # Edit Prompt -- http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
@@ -33,14 +33,16 @@ PS1="${YELLOW}\$? \! \t \u@\h:\W${GREEN}\$(__git_ps1)${YELLOW}\$${ESC} "
 
 
 # Aliases
+unalias -a
+
 if $(is_osx); then
     alias ls="ls -G -lh"
 else
     alias ls="ls --color -lh"
 fi
 
-alias grep="grep -E"
-alias reup="source ${MY_PROFILE_HOME}/my_bash_env"
+alias grep="grep --color -E"
+alias reup="source ${PROFILE_HOME}/profile"
 alias vi="vim '+syntax on' '+set number'"
 
 
@@ -48,7 +50,7 @@ alias vi="vim '+syntax on' '+set number'"
 if $(is_osx); then
     export JAVA_HOME="$(/usr/libexec/java_home)"
 else
-    export JAVA_HOME="$(${MY_PROFILE_HOME}/java_home)"
+    export JAVA_HOME="$(${PROFILE_HOME}/java_home)"
 fi
 
 export APPS="${HOME}/Applications"
