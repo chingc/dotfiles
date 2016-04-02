@@ -1,59 +1,83 @@
 #!/bin/bash
 
 
-function is_osx {
+# Location of this script -- http://stackoverflow.com/questions/59895/
+PROFILE_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+
+# Helpful git scripts -- https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
+source "${PROFILE_HOME}/git-completion.sh"
+source "${PROFILE_HOME}/git-prompt.sh"
+
+
+# Is this a Mac?
+is_osx() {
     if [ "$(uname -s)" == "Darwin" ]; then
-        return 0  # zero means success because this is a unix function
+        return 0  # this is run by the shell so zero means success
     else
         return 1
     fi
 }
 
 
-# This Script Location -- http://stackoverflow.com/questions/59895/
-PROFILE_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Customize prompt -- http://misc.flogisoft.com/bash/tip_colors_and_formatting
+set_prompt() {
+    local esc='\[\033[0m\]'
 
+    local black='\[\033[0;30m\]'
+    local red='\[\033[0;31m\]'
+    local green='\[\033[0;32m\]'
+    local yellow='\[\033[0;33m\]'
+    local blue='\[\033[0;34m\]'
+    local magenta='\[\033[0;35m\]'
+    local cyan='\[\033[0;36m\]'
+    local white='\[\033[0;97m\]'
 
-# Helpful Git Scripts -- https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
-source "${PROFILE_HOME}/git-completion.sh"
-source "${PROFILE_HOME}/git-prompt.sh"
+    local exit_status='$?'
+    local history_number='\!'
+    local time='\t'
+    local user='\u'
+    local host='\h'
+    local workdir='\W'
+    local prompt='\$'
 
+    local git='$(__git_ps1)'  # from the helpful git scripts
 
-# Edit Prompt -- http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
-ESC="\[\033[0m\]"
-BLACK="\[\033[0;30m\]"
-RED="\[\033[0;31m\]"
-GREEN="\[\033[0;32m\]"
-YELLOW="\[\033[0;33m\]"
-BLUE="\[\033[0;34m\]"
-MAGENTA="\[\033[0;35m\]"
-CYAN="\[\033[0;36m\]"
-
-PS1="${YELLOW}\$? \! \t \u@\h:\W${GREEN}\$(__git_ps1)${YELLOW}\$${ESC} "
+    PS1="${yellow}${exit_status} ${history_number} ${time} ${user}@${host}:${workdir}${green}${git}${yellow}${prompt}${esc} "
+}
 
 
 # Aliases
-unalias -a
+set_alias() {
+    unalias -a
 
-if $(is_osx); then
-    alias ls="ls -G -lh"
-else
-    alias ls="ls --color -lh"
-fi
+    if $(is_osx); then
+        alias ls="ls -FGhl"
+    else
+        alias ls="ls -Fhl --color"
+    fi
 
-alias grep="grep --color -E"
-alias reup="source ${PROFILE_HOME}/profile"
-alias vi="vim '+syntax on' '+set number'"
+    alias grep="grep -E --color"
+    alias reup="source ${PROFILE_HOME}/profile"
+    alias vi="vim '+syntax on' '+set number'"
+}
 
 
-# Paths
-if $(is_osx); then
-    export JAVA_HOME="$(/usr/libexec/java_home)"
-else
-    export JAVA_HOME="$(${PROFILE_HOME}/java_home)"
-fi
+# PATHs
+set_path() {
+    if $(is_osx); then
+        export JAVA_HOME="$(/usr/libexec/java_home)"
+    else
+        export JAVA_HOME="$(${PROFILE_HOME}/java_home)"
+    fi
 
-export APPS="${HOME}/Applications"
+    # Prevent PATH from growing larger every time this file is sourced, but don't
+    # use BASE_PATH if RVM is in use because RVM likes to screw with your PATH.
+    export BASE_PATH="${BASE_PATH:-${PATH}}"
+    export PATH="${BASE_PATH}"
+}
 
-export BASE_PATH="${BASE_PATH:-${PATH}}"  # prevent path from growing larger every time this file is sourced
-export PATH="${BASE_PATH}"
+
+set_alias
+set_path
+set_prompt
