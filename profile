@@ -21,7 +21,7 @@ is_osx() {
 
 
 # Customize prompt -- http://misc.flogisoft.com/bash/tip_colors_and_formatting
-set_prompt() {
+my_prompt() {
     local esc='\[\033[0m\]'
 
     local black='\[\033[0;30m\]'
@@ -48,7 +48,7 @@ set_prompt() {
 
 
 # Aliases
-set_alias() {
+my_alias() {
     unalias -a
 
     if $(is_osx); then
@@ -64,7 +64,7 @@ set_alias() {
 
 
 # PATHs
-set_path() {
+my_path() {
     if $(is_osx); then
         export JAVA_HOME="$(/usr/libexec/java_home)"
     else
@@ -78,6 +78,6 @@ set_path() {
 }
 
 
-set_alias
-set_path
-set_prompt
+my_alias
+my_path
+my_prompt
