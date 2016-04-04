@@ -78,6 +78,16 @@ my_path() {
 }
 
 
+# Additional profile settings
+my_settings() {
+    if [ -f $HOME/.my_settings ]; then
+        source $HOME/.my_settings
+    fi
+}
+
+
 my_alias
 my_path
 my_prompt
+
+my_settings
