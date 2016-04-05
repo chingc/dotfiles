@@ -20,6 +20,32 @@ is_osx() {
 }
 
 
+# Aliases
+my_alias() {
+    unalias -a
+
+    if $(is_osx); then
+        alias ls="ls -FGhl"
+    else
+        alias ls="ls -Fhl --color"
+    fi
+
+    alias grep="grep -E --color"
+    alias reup="source ${PROFILE_HOME}/profile"
+    alias vi="vim '+syntax on' '+set number'"
+}
+
+
+# JAVA_HOME
+my_java() {
+    if $(is_osx); then
+        export JAVA_HOME="$(/usr/libexec/java_home)"
+    else
+        export JAVA_HOME="$(${PROFILE_HOME}/java_home)"
+    fi
+}
+
+
 # Customize prompt -- http://misc.flogisoft.com/bash/tip_colors_and_formatting
 my_prompt() {
     local esc='\[\033[0m\]'
@@ -47,37 +73,6 @@ my_prompt() {
 }
 
 
-# Aliases
-my_alias() {
-    unalias -a
-
-    if $(is_osx); then
-        alias ls="ls -FGhl"
-    else
-        alias ls="ls -Fhl --color"
-    fi
-
-    alias grep="grep -E --color"
-    alias reup="source ${PROFILE_HOME}/profile"
-    alias vi="vim '+syntax on' '+set number'"
-}
-
-
-# PATHs
-my_path() {
-    if $(is_osx); then
-        export JAVA_HOME="$(/usr/libexec/java_home)"
-    else
-        export JAVA_HOME="$(${PROFILE_HOME}/java_home)"
-    fi
-
-    # Prevent PATH from growing larger every time this file is sourced, but don't
-    # use BASE_PATH if RVM is in use because RVM likes to screw with your PATH.
-    export BASE_PATH="${BASE_PATH:-${PATH}}"
-    export PATH="${BASE_PATH}"
-}
-
-
 # Additional profile settings
 my_settings() {
     if [ -f $HOME/.my_settings ]; then
@@ -87,7 +82,6 @@ my_settings() {
 
 
 my_alias
-my_path
+my_java
 my_prompt
-
 my_settings
