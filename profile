@@ -2,7 +2,12 @@
 
 
 # Location of this script -- http://stackoverflow.com/questions/59895/
-PROFILE_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export PROFILE_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+
+# History
+export HISTSIZE=9999
+export HISTFILESIZE=9999
 
 
 # Helpful git scripts -- https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
@@ -10,7 +15,7 @@ source "${PROFILE_HOME}/git-completion.sh"
 source "${PROFILE_HOME}/git-prompt.sh"
 
 
-# Is this a Mac?
+# Is this Mac OS X?
 is_osx() {
     if [ "$(uname -s)" == "Darwin" ]; then
         return 0  # this is run by the shell so zero means success
@@ -69,7 +74,7 @@ my_prompt() {
 
     local git='$(__git_ps1)'  # from the helpful git scripts
 
-    PS1="${yellow}${exit_status} ${history_number} ${time} ${user}@${host}:${workdir}${green}${git}${yellow}${prompt}${esc} "
+    export PS1="${yellow}${exit_status} ${history_number} ${time} ${user}@${host}:${workdir}${green}${git}${yellow}${prompt}${esc} "
 }
 
 
