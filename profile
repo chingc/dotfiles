@@ -53,16 +53,16 @@ my_java() {
 
 # Customize prompt -- http://misc.flogisoft.com/bash/tip_colors_and_formatting
 my_prompt() {
-    local esc='\[\033[0m\]'
+    local esc='\[\e[0m\]'
 
-    local black='\[\033[0;30m\]'
-    local red='\[\033[0;31m\]'
-    local green='\[\033[0;32m\]'
-    local yellow='\[\033[0;33m\]'
-    local blue='\[\033[0;34m\]'
-    local magenta='\[\033[0;35m\]'
-    local cyan='\[\033[0;36m\]'
-    local white='\[\033[0;97m\]'
+    local black='\[\e[30m\]'
+    local red='\[\e[31m\]'
+    local green='\[\e[32m\]'
+    local yellow='\[\e[33m\]'
+    local blue='\[\e[34m\]'
+    local magenta='\[\e[35m\]'
+    local cyan='\[\e[36m\]'
+    local white='\[\e[97m\]'
 
     local exit_status='$?'
     local history_number='\!'
