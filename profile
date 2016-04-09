@@ -62,6 +62,15 @@ my_prompt() {
     local blue='\[\e[34m\]'
     local magenta='\[\e[35m\]'
     local cyan='\[\e[36m\]'
+
+    local light_gray='\[\e[37m\]'
+    local dark_gray='\[\e[90m\]'
+    local light_red='\[\e[91m\]'
+    local light_green='\[\e[92m\]'
+    local light_yellow='\[\e[93m\]'
+    local light_blue='\[\e[94m\]'
+    local light_magenta='\[\e[95m\]'
+    local light_cyan='\[\e[96m\]'
     local white='\[\e[97m\]'
 
     local exit_status='$?'
