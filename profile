@@ -1,24 +1,21 @@
 #!/bin/bash
 
 
+# Bash settings
+export EDITOR=vi
+export HISTCONTROL=ignoreboth
+export HISTFILESIZE=9999
+export HISTSIZE=9999
+
+
 # Location of this script -- http://stackoverflow.com/questions/59895/
 export PROFILE_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-
-# History
-export HISTSIZE=9999
-export HISTFILESIZE=9999
-
-
-# Helpful git scripts -- https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
-source "${PROFILE_HOME}/git-completion.sh"
-source "${PROFILE_HOME}/git-prompt.sh"
 
 
 # Is this Mac OS X?
 is_osx() {
     if [ "$(uname -s)" == "Darwin" ]; then
-        return 0  # this is run by the shell so zero means success
+        return 0  # this is run by the shell so zero is true/success
     else
         return 1
     fi
@@ -29,24 +26,24 @@ is_osx() {
 my_alias() {
     unalias -a
 
-    if $(is_osx); then
-        alias ls="ls -FGhl"
+    if is_osx; then
+        alias ls='ls -FGhl'
     else
-        alias ls="ls -Fhl --color"
+        alias ls='ls -Fhl --color'
     fi
 
-    alias grep="grep -E --color"
-    alias reup="source ${PROFILE_HOME}/profile"
-    alias vi="vim '+syntax on' '+set number'"
+    alias grep='grep -E --color'
+    alias vi='vim "+syntax on" "+set number"'
+    alias vim='vim "+syntax on" "+set number"'
 }
 
 
 # JAVA_HOME
 my_java() {
-    if $(is_osx); then
+    if is_osx; then
         export JAVA_HOME="$(/usr/libexec/java_home)"
     else
-        export JAVA_HOME="$(${PROFILE_HOME}/java_home)"
+        export JAVA_HOME="$("${PROFILE_HOME}/java_home")"
     fi
 }
 
@@ -81,16 +78,18 @@ my_prompt() {
     local workdir='\W'
     local prompt='\$'
 
-    local git='$(__git_ps1)'  # from the helpful git scripts
+    # Helpful git scripts -- https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
+    source "${PROFILE_HOME}/git-completion.sh"
+    source "${PROFILE_HOME}/git-prompt.sh"
 
-    export PS1="${yellow}${exit_status} ${history_number} ${time} ${user}@${host}:${workdir}${green}${git}${yellow}${prompt}${esc} "
+    export PS1="${yellow}${exit_status} ${history_number} ${time} ${user}@${host}:${workdir}${green}\$(__git_ps1)${yellow}${prompt}${esc} "
 }
 
 
 # Additional profile settings
 my_settings() {
-    if [ -f $HOME/.my_settings ]; then
-        source $HOME/.my_settings
+    if [ -f "${HOME}/.my_settings" ]; then
+        source "${HOME}/.my_settings"
     fi
 }
 
