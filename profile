@@ -45,9 +45,6 @@ my_java() {
     else
         export JAVA_HOME="$("${PROFILE_HOME}/java_home")"
     fi
-
-    export JDK_HOME="${JAVA_HOME}"
-    export JRE_HOME="${JAVA_HOME}"
 }
 
 
