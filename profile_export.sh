@@ -7,15 +7,17 @@ if is_macos
 then
     JAVA_HOME="$(/usr/libexec/java_home)"
 else
-    JAVA_HOME="$(${PROFILE_HOME}/java_home)"
+    JAVA_HOME="$("${PROFILE_HOME}"/java_home)"
 fi
 
 JAVA_OPTS="-Xmx2G"
 
 JRUBY_HOME=${HOME}/Applications/jruby
 
+MYSQL_HOME="/usr/local/opt/mysql@5.6"
+
 BASE_PATH="${BASE_PATH:-${PATH}}"  # prevent path from growing larger every time this is sourced
-PATH="${JRUBY_HOME}/bin:${BASE_PATH}"
+PATH="${JRUBY_HOME}/bin:${MYSQL_HOME}/bin:${BASE_PATH}"
 
 export ANDROID_HOME
 export JAVA_OPTS

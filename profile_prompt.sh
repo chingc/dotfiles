@@ -8,7 +8,7 @@ my_prompt() {
     # local red='\[\e[31m\]'
     local green='\[\e[32m\]'
     local yellow='\[\e[33m\]'
-    # local blue='\[\e[34m\]'
+    local blue='\[\e[34m\]'
     # local magenta='\[\e[35m\]'
     # local cyan='\[\e[36m\]'
 
@@ -22,16 +22,20 @@ my_prompt() {
     # local light_cyan='\[\e[96m\]'
     # local white='\[\e[97m\]'
 
+    local bold='\[\e[1m\]'
+    # local reverse='\[\e[7m\]'
+    # local hidden='\[\e[8m\]'
+
     local exit_status='$?'
-    local history_number='\!'
-    local time='\t'
+    # local history_number='\!'
+    local time='\A'
     local user='\u'
     local host='\h'
     local workdir='\W'
     local prompt='\$'
 
     # Customize prompt -- http://misc.flogisoft.com/bash/tip_colors_and_formatting
-    export PS1="${yellow}${exit_status} ${history_number} ${time} ${user}@${host}:${workdir}${green}\$(__git_ps1)${yellow}${prompt}${esc} "
+    export PS1="${bold}${yellow}${exit_status} ${time} ${user}@${host} ${blue}${workdir}${green}\$(__git_ps1)${yellow} ${prompt}${esc} "
 }
 
 # Helpful git scripts -- https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
