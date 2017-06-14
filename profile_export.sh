@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-ANDROID_HOME="/usr/local/opt/android-sdk"
+ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
 if is_macos
 then
@@ -19,7 +19,7 @@ MYSQL_HOME="/usr/local/opt/mysql@5.6"
 BASE_PATH="${BASE_PATH:-${PATH}}"  # prevent path from growing larger every time this is sourced
 PATH="${JRUBY_HOME}/bin:${MYSQL_HOME}/bin:${BASE_PATH}"
 
-export ANDROID_HOME
+export ANDROID_SDK_ROOT
 export JAVA_OPTS
 export JAVA_HOME
 export PATH
