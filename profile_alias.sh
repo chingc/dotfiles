@@ -10,22 +10,25 @@ is_macos() {
     fi
 }
 
-docker-dangles() {
-    docker images -f "dangling=true" -q
-}
-
 reup() {
-    brew update
-    echo -e "\n"
-    brew outdated
-    brew cask outdated
-    echo -e "\n"
-    softwareupdate -l
+    if is_macos
+    then
+        brew update
+        echo "==> Brew Updates"
+        brew outdated
+        echo "==> Brew Cask Updates"
+        brew cask outdated
+        echo "==> System Updates"
+        softwareupdate -l
+    else
+        echo "==> Software Updates"
+        sudo apt-get update
+        sudo apt-get -u upgrade --assume-no
+    fi
 }
 
 
 unalias -a
-
 
 if is_macos
 then
@@ -38,7 +41,4 @@ alias grep="grep -E --color"
 
 alias vi="vim"
 
-
-# Work
-
-alias be="bundle exec"
+alias docker-dangles="docker images -f dangling=true -q"

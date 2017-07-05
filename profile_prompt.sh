@@ -38,8 +38,10 @@ my_prompt() {
     export PS1="${bold}${yellow}${exit_status} ${time} ${user}@${host} ${blue}${workdir}${green}\$(__git_ps1)${yellow} ${prompt}${esc} "
 }
 
-# Helpful git scripts -- https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
-source "${PROFILE_HOME}/git-completion.bash"
-source "${PROFILE_HOME}/git-prompt.sh"
+# shellcheck disable=SC1091
+{
+    source /usr/local/etc/bash_completion.d/git-completion.bash
+    source /usr/local/etc/bash_completion.d/git-prompt.sh
+}
 
 my_prompt
