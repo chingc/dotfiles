@@ -42,3 +42,5 @@ alias grep="grep -E --color"
 alias vi="vim"
 
 alias docker-dangles="docker images -f dangling=true -q"
+
+alias activate="source venv/bin/activate"
