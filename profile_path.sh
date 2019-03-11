@@ -1,8 +1,11 @@
 #!/bin/bash
 
 
-BASE_PATH="${BASE_PATH:-${PATH}}"  # prevent path from growing larger every time this is sourced
-PATH="${BASE_PATH}"  # add any additional paths here
+# prevent path from growing larger every time the profile is sourced
+BASE_PATH="${BASE_PATH:-${PATH}}"
+
+# append any additional paths here
+PATH="${BASE_PATH}"
 
 export BASE_PATH
 export PATH
