@@ -1,13 +1,4 @@
-# Shell Profile
-
-Just my bash profile.
-
-## Usage
-
-1. Clone this repo
-2. Add `source "<PATH_TO_REPO>/profile.sh"` to your bash profile.
-
-## Files
+# README
 
 File | Purpose
 :--- | :------
@@ -16,3 +7,7 @@ File | Purpose
 `profile_path.sh` | PATH customization
 `profile_prompt.sh` | Prompt customization
 `java_home` | Find the location of `java`
+
+## Usage
+
+Add `source "<PATH_TO_THIS_DIR>/profile.sh"` to your bash profile.
