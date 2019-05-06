@@ -1,0 +1,30 @@
+{
+    "editor.detectIndentation": false,
+    "editor.renderWhitespace": "boundary",
+
+    "files.associations": {
+        "Vagrantfile": "ruby"
+    },
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+
+    "gitlens.codeLens.enabled": false,
+
+    "markdownlint.config": {
+        "MD009": { "br_spaces": 2 },
+        "MD013": false,
+        "MD040": false,
+        "MD041": false
+    },
+
+    "python.jediEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.pylintUseMinimalCheckers": false,
+    "python.venvPath": ".venv",
+
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.settings.useSplitJSON": true
+}
