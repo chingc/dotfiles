@@ -1,0 +1,15 @@
+# This is Git's per-user configuration file.
+
+[user]
+name = Ching Chow
+email = ching.chow.sc@gmail.com
+
+[format]
+pretty = oneline
+
+[log]
+abbrevCommit = true
+date = human
+
+[rebase]
+autosquash = true
