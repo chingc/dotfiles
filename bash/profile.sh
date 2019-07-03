@@ -18,3 +18,5 @@ export EDITOR=vim
 export HISTCONTROL=ignoreboth
 export HISTFILESIZE=9999
 export HISTSIZE=
+
+shopt -s globstar
