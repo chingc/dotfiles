@@ -3,7 +3,7 @@
     email = ching.chow.sc@gmail.com
 
 [core]
-    autocrlf = input
+    autocrlf = false
 
 [format]
     pretty = oneline

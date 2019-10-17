@@ -8,7 +8,7 @@ activate() {
         source .venv/bin/activate
         echo "venv: $(command -v python)"
     else
-        echo "venv not found"
+        echo "venv: not found"
         return 1
     fi
 }
