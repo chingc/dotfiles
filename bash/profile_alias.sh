@@ -36,6 +36,14 @@ mkvenv() {
     activate
 }
 
+repeat() {
+    for n in $(seq "${1}")
+    do
+        echo ">>> Run #${n}"
+        "${@:2}"
+    done
+}
+
 reup() {
     if is_macos
     then
