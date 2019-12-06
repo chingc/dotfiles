@@ -1,47 +1,38 @@
 #!/bin/bash
 
 
-my_prompt() {
-    local esc='\[\e[0m\]'
-
-    # local black='\[\e[30m\]'
-    # local red='\[\e[31m\]'
-    local green='\[\e[32m\]'
-    local yellow='\[\e[33m\]'
-    local blue='\[\e[34m\]'
-    # local magenta='\[\e[35m\]'
-    # local cyan='\[\e[36m\]'
-
-    # local light_gray='\[\e[37m\]'
-    # local dark_gray='\[\e[90m\]'
-    # local light_red='\[\e[91m\]'
-    # local light_green='\[\e[92m\]'
-    # local light_yellow='\[\e[93m\]'
-    # local light_blue='\[\e[94m\]'
-    # local light_magenta='\[\e[95m\]'
-    # local light_cyan='\[\e[96m\]'
-    # local white='\[\e[97m\]'
-
-    local bold='\[\e[1m\]'
-    # local reverse='\[\e[7m\]'
-    # local hidden='\[\e[8m\]'
-
-    local exit_status='$?'
-    # local history_number='\!'
-    local time='\A'
-    local user='\u'
-    local host='\h'
-    local workdir='\W'
-    local prompt='\$'
-
-    # Customize prompt -- http://misc.flogisoft.com/bash/tip_colors_and_formatting
-    export PS1="${bold}${yellow}${exit_status} ${time} ${user}@${host} ${blue}${workdir}${green}\$(__git_ps1)${yellow} ${prompt}${esc} "
-}
-
 # shellcheck disable=SC1091
 {
     source /usr/local/etc/bash_completion.d/git-completion.bash
     source /usr/local/etc/bash_completion.d/git-prompt.sh
 }
+
+my_prompt() {
+    local esc='\[\033[0m\]'
+    # local gray='\[\033[1;30m\]'
+    # local red='\[\033[1;31m\]'
+    local green='\[\033[1;32m\]'
+    local yellow='\[\033[1;33m\]'
+    local blue='\[\033[1;34m\]'
+    # local magenta='\[\033[1;35m\]'
+    # local cyan='\[\033[1;36m\]'
+    # local white='\[\033[1;37m\]'
+
+    # customize prompt: http://misc.flogisoft.com/bash/tip_colors_and_formatting
+    PS1="${yellow}[\A "'${CMD_RUNTIME}s'" \$?] \u ${blue}\w${green}"'$(__git_ps1)'"${yellow} \$${esc} "
+}
+
+cmd_timer_start() {
+    CMD_TIMER_START=${CMD_TIMER_START:-$SECONDS}
+}
+
+cmd_timer_stop() {
+  CMD_RUNTIME=$((SECONDS - CMD_TIMER_START))
+  unset CMD_TIMER_START
+}
+
+# command timer: https://stackoverflow.com/a/1862762/4399354
+trap 'cmd_timer_start' DEBUG
+PROMPT_COMMAND=cmd_timer_stop
 
 my_prompt
