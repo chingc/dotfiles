@@ -2,9 +2,9 @@
 
 
 profile_home() {
-    # Location of this script -- http://stackoverflow.com/questions/59895/
+    # location of this script: https://stackoverflow.com/a/246128/4399354
     # shellcheck disable=SC2005
-    echo "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    echo "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 }
 
 # shellcheck disable=SC1090
