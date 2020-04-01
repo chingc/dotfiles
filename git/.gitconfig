@@ -1,16 +1,16 @@
 [user]
-    name = Ching Chow
-    email = ching.chow.sc@gmail.com
+name = Ching Chow
+email = ching.chow.sc@gmail.com
 
 [core]
-    autocrlf = false
+autocrlf = false
 
 [format]
-    pretty = oneline
+pretty = oneline
 
 [log]
-    abbrevCommit = true
-    date = human
+abbrevCommit = true
+date = human
 
 [rebase]
-    autosquash = true
+autosquash = true
