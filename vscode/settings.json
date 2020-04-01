@@ -29,6 +29,7 @@
   "python.linting.pylintUseMinimalCheckers": false,
   "python.terminal.activateEnvironment": true,
 
+  "workbench.editor.untitled.labelFormat": "name",
   "workbench.iconTheme": "material-icon-theme",
   "workbench.settings.useSplitJSON": true
 }
