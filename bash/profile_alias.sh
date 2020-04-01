@@ -48,14 +48,14 @@ reup() {
     if is_macos
     then
         brew update
-        echo "==> Brew Updates"
+        printf "\n\033[0;34m==>\033[0m Brew Updates\n"
         brew outdated
-        echo "==> Brew Cask Updates"
+        printf "\n\033[0;34m==>\033[0m Brew Cask Updates\n"
         brew cask outdated
-        echo "==> System Updates"
+        printf "\n\033[0;34m==>\033[0m System Updates\n"
         softwareupdate -l
     else
-        echo "==> Software Updates"
+        printf "\n\033[0;34m==>\033[0m Software Updates\n"
         sudo apt-get update
         sudo apt-get -u upgrade --assume-no
     fi
