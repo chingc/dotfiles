@@ -12,5 +12,8 @@ pretty = oneline
 abbrevCommit = true
 date = human
 
+[pull]
+ff = only
+
 [rebase]
 autosquash = true
