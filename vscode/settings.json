@@ -22,7 +22,6 @@
   },
 
   "python.formatting.provider": "black",
-  "python.jediEnabled": true,
   "python.linting.enabled": true,
   "python.linting.mypyEnabled": true,
   "python.linting.pylintEnabled": true,
