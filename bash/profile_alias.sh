@@ -32,7 +32,7 @@ is_macos() {
 }
 
 mkvenv() {
-    python -m venv .venv
+    python3 -m venv .venv
     activate
 }
 
@@ -51,7 +51,7 @@ reup() {
         printf "\n\033[0;34m==>\033[0m Brew Updates\n"
         brew outdated
         printf "\n\033[0;34m==>\033[0m Brew Cask Updates\n"
-        brew cask outdated
+        brew outdated --cask
         printf "\n\033[0;34m==>\033[0m System Updates\n"
         softwareupdate -l
     else
