@@ -1,12 +1,11 @@
 # README
 
-File | Purpose
-:--- | :------
-`profile.sh` | Main
-`profile_alias.sh` | Alias customization
-`profile_path.sh` | PATH customization
-`profile_prompt.sh` | Prompt customization
-`java_home` | Find the location of `java`
+| File                | Purpose              |
+| :------------------ | :------------------- |
+| `profile.sh`        | Main                 |
+| `profile_alias.sh`  | Alias customization  |
+| `profile_path.sh`   | PATH customization   |
+| `profile_prompt.sh` | Prompt customization |
 
 ## Usage
 
