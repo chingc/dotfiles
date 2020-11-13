@@ -39,7 +39,7 @@ mkvenv() {
 repeat() {
     for n in $(seq "${1}")
     do
-        echo ">>> Run #${n}"
+        echo ">>> Run ${n}/${1}"
         "${@:2}"
     done
 }
