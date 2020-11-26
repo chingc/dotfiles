@@ -1,8 +1,19 @@
-# color reference: https://jonasjacek.github.io/colors/
-# prompt reference: http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-# use 'print -P PROMPT' to preview
+# colors: https://jonasjacek.github.io/colors/
+# options: http://zsh.sourceforge.net/Doc/Release/Options.html
+# prompt: http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
 
+export HISTFILE=~/.zsh_history
+export HISTFILESIZE=1000000
+export HISTSIZE=1000000
+
+setopt EXTENDED_HISTORY
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt INC_APPEND_HISTORY_TIME
 setopt PROMPT_SUBST
 
+# use 'print -P' to preview
 PROMPT='%F{11}%n%f %F{12}%2~%f %F{10}$([[ -d .git ]] && echo "$(git branch --show-current) ")%f%F{11}%#%f '
 RPROMPT='%(?.%F{10}%? ✔︎%f.%F{9}%? ✘%f) %F{11}%* %D{%Z}%f'
