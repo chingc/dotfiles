@@ -1,0 +1,8 @@
+# color reference: https://jonasjacek.github.io/colors/
+# prompt reference: http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+# use 'print -P PROMPT' to preview
+
+setopt PROMPT_SUBST
+
+PROMPT='%F{11}%n%f %F{12}%2~%f %F{10}$([[ -d .git ]] && echo "$(git branch --show-current) ")%f%F{11}%#%f '
+RPROMPT='%(?.%F{10}%? ✔︎%f.%F{9}%? ✘%f) %F{11}%* %D{%Z}%f'
