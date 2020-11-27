@@ -10,6 +10,17 @@ cd() {
     fi
 }
 
+cprint() {
+    # colors: https://jonasjacek.github.io/colors/
+    # args are the color code followed by the text to print
+    print -P '%F{${1}}${@:2}%f'
+}
+
+cprintn() {
+    # same as cprint but no newline
+    print -nP '%F{${1}}${@:2}%f'
+}
+
 is_macos() {
     if [[ "$(uname -s)" == "Darwin" ]]
     then
@@ -28,9 +39,9 @@ reup() {
     if is_macos
     then
         brew update
-        printf "\n\033[0;34m==>\033[0m Brew Updates\n"
+        cprintn 32 '==> '; print 'Brew Updates'
         brew outdated
-        printf "\n\033[0;34m==>\033[0m Brew Cask Updates\n"
+        cprintn 32 '==> '; print 'Brew Cask Updates'
         brew outdated --cask
     fi
 }
