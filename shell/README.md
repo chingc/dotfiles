@@ -7,4 +7,4 @@
 
 ## Usage
 
-Source these files from your shell profile.
+Source these files from your `.zshrc` profile.
