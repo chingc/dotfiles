@@ -12,5 +12,14 @@ setopt HIST_IGNORE_SPACE
 setopt INC_APPEND_HISTORY_TIME
 setopt PROMPT_SUBST
 
-PROMPT='%F{11}%n%f %F{12}%2~%f %F{10}$([[ -d .git ]] && echo "$(git branch --show-current) ")%f%F{11}%#%f '
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats '%b'
+zstyle ':vcs_info:git:*' actionformats '%b (%a)'
+
+precmd() {
+    vcs_info
+}
+
+PROMPT='%F{11}%n%f %F{12}%2~%f %F{10}${vcs_info_msg_0_}%f %F{11}%#%f '
 RPROMPT='%(?.%F{10}%? ✔︎%f.%F{9}%? ✘%f) %F{11}%* %D{%Z}%f'
