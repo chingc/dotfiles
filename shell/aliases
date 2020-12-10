@@ -59,10 +59,10 @@ sysup() {
 
 if is_macos
 then
-    alias ll='ls -FGhl'
+    alias ll='ls -FGhla'
     alias ls='ls -FGh'
 else
-    alias ll='ls -Fhl --color'
+    alias ll='ls -Fhla --color'
     alias ls='ls -Fh --color'
 fi
 
