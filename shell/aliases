@@ -39,8 +39,8 @@ reup() {
     if is_macos
     then
         brew update
-        cprintn 32 '==> '; print 'Brew Updates'
-        brew outdated
+        cprintn 32 '==> '; print 'Brew Formula Updates'
+        brew outdated --formula
         cprintn 32 '==> '; print 'Brew Cask Updates'
         brew outdated --cask
     fi
