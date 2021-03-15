@@ -5,15 +5,12 @@ email = ching.chow.sc@gmail.com
 [core]
 autocrlf = false
 
-[format]
-pretty = oneline
-
-[log]
-abbrevCommit = true
-date = human
-
 [pull]
 ff = only
 
 [rebase]
 autosquash = true
+
+[alias]
+ls = log --graph --pretty='format:%C(auto)%h [%ci]%d %s by %an'
+pick = cherry-pick
