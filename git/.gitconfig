@@ -12,5 +12,7 @@ ff = only
 autosquash = true
 
 [alias]
+amend = commit --amend
+fixup = commit --fixup
 ls = log --graph --pretty='format:%C(auto)%h [%ci]%d %s (%an)'
 pick = cherry-pick
