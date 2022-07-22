@@ -15,6 +15,7 @@ autosquash = true
 
 [alias]
 amend = commit --amend
+co = checkout
 del = branch --delete --force
 fixup = commit --fixup
 ls = log --graph --pretty='format:%C(auto)%h [%ci]%d %s (%an)'
