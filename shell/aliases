@@ -1,5 +1,4 @@
-# aliases and functions
-
+# intended for macos zsh
 
 cd() {
     builtin cd "$@" || return
