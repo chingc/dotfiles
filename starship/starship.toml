@@ -1,0 +1,8 @@
+# https://starship.rs/
+
+[status]
+disabled = false
+
+[time]
+disabled = false
+format = "[$time]($style) "
