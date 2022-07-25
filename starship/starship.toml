@@ -2,6 +2,7 @@
 
 [status]
 disabled = false
+symbol = ""
 
 [time]
 disabled = false
