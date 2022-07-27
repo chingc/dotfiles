@@ -38,36 +38,14 @@ mkvenv() {
 }
 
 reup() {
-    if is_macos
-    then
-        brew update
-        cprintn 32 '==> '; print 'Brew Formula Updates'
-        brew outdated --formula
-        cprintn 32 '==> '; print 'Brew Cask Updates'
-        brew outdated --cask
-    fi
+    brew update
+    cprintn 32 '==> '; print 'Brew Formula Updates'
+    brew outdated --formula
+    cprintn 32 '==> '; print 'Brew Cask Updates'
+    brew outdated --cask
 }
-
-sysup() {
-    if is_macos
-    then
-        softwareupdate -l
-    else
-        sudo apt-get update
-        sudo apt-get -u upgrade --assume-no
-    fi
-}
-
-
-if is_macos
-then
-    alias ll='ls -FGhla'
-    alias ls='ls -FGh'
-else
-    alias ll='ls -Fhla --color'
-    alias ls='ls -Fh --color'
-fi
 
 alias grep='egrep --color'
-
+alias ll='ls -FGhla'
+alias ls='ls -FGh'
 alias vi='vim'
