@@ -4,10 +4,10 @@ cd() {
     builtin cd "$@" || return
     if [[ -d .venv ]]
     then
-        deactivate &>/dev/null
+        deactivate &> /dev/null
         source .venv/bin/activate
     else
-        deactivate &>/dev/null
+        deactivate &> /dev/null
         true
     fi
 }
