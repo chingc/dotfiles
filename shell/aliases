@@ -46,6 +46,7 @@ reup() {
 }
 
 alias grep='egrep --color'
-alias ll='ls -FGhla'
-alias ls='ls -FGh'
+alias ll='ls -Fhl --color'
+alias lla='ls -Fhla --color'
+alias ls='ls -Fh --color'
 alias vi='vim'
