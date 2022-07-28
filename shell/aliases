@@ -6,9 +6,6 @@ cd() {
     then
         deactivate &> /dev/null
         source .venv/bin/activate
-    else
-        deactivate &> /dev/null
-        true
     fi
 }
 
