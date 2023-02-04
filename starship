@@ -1,4 +1,5 @@
-# https://starship.rs/
+# Place under ~/.config/starship.toml
+# https://starship.rs
 
 [status]
 disabled = false
@@ -7,3 +8,4 @@ symbol = ""
 [time]
 disabled = false
 format = "[$time]($style) "
+time_format = "%R"

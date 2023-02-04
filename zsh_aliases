@@ -1,4 +1,4 @@
-# intended for macos zsh
+# Source in .zshrc
 
 cd() {
     builtin cd "$@" || return
@@ -34,16 +34,7 @@ mkvenv() {
     source .venv/bin/activate
 }
 
-reup() {
-    brew update
-    cprintn 32 '==> '; print 'Brew Formula Updates'
-    brew outdated --formula
-    cprintn 32 '==> '; print 'Brew Cask Updates'
-    brew outdated --cask
-}
-
-alias grep='egrep --color'
-alias ll='ls -Fhl --color'
-alias lla='ls -Fhla --color'
+alias grep='grep --color --extended-regexp'
+alias ll='ls -Fhla --color'
 alias ls='ls -Fh --color'
 alias vi='vim'

@@ -1,4 +1,5 @@
-// https://code.visualstudio.com/
+// Placed under ~/Library/Application Support/Code/User/settings.json
+// https://code.visualstudio.com
 
 {
   "editor.detectIndentation": true,

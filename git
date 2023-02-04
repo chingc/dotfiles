@@ -1,4 +1,5 @@
-# https://git-scm.com/
+# Place under ~/.gitconfig
+# https://git-scm.com
 
 [alias]
     amend = commit --amend
@@ -19,4 +20,4 @@
 
 [user]
     name = Ching Chow
-    email = ching@getbento.com
+    email = bright.water2722@fastmail.com
