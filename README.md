@@ -2,4 +2,4 @@
 
 Various configuration files.
 
-Use symlinks instead of copy-pasting to more effectively use these files.
+Tip: Symlink to these files instead of copying them.
