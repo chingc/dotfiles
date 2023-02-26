@@ -1,39 +1,5 @@
 # Source in .zshrc
 
-cd() {
-    builtin cd "$@" || return
-    if [[ -d .venv ]]
-    then
-        deactivate &> /dev/null
-        source .venv/bin/activate
-    fi
-}
-
-cprint() {
-    # colors: https://jonasjacek.github.io/colors/
-    # args are the color code followed by the text to print
-    print -P '%F{${1}}${@:2}%f'
-}
-
-cprintn() {
-    # same as cprint but no newline
-    print -nP '%F{${1}}${@:2}%f'
-}
-
-is_macos() {
-    if [[ "$(uname -s)" == "Darwin" ]]
-    then
-        return 0
-    else
-        return 1
-    fi
-}
-
-mkvenv() {
-    python3 -m venv .venv
-    source .venv/bin/activate
-}
-
 alias grep='grep --color --extended-regexp'
 alias ll='ls -Fhla --color'
 alias ls='ls -Fh --color'
