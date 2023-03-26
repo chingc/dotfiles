@@ -1,6 +1,8 @@
 # Source in .zshrc
 
 alias grep='grep --color --extended-regexp'
-alias ll='ls -Fhla --color'
+alias sed='sed -E'
+alias la='ls -Fhla --color'
+alias ll='ls -Fhl --color'
 alias ls='ls -Fh --color'
 alias vi='vim'
