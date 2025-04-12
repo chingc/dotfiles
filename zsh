@@ -8,8 +8,9 @@ alias ls='ls -Fh --color'
 alias vi='nvim'
 
 cprint() {
-    # colors: https://jonasjacek.github.io/colors/
-    # args are the color code followed by the text to print
+    # args: the xterm color number followed by the text
+    # example: cprint 46 hello world
+    # reference: https://www.ditig.com/256-colors-cheat-sheet
     print -P '%F{${1}}${@:2}%f'
 }
 
