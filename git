@@ -1,5 +1,5 @@
-# Place under ~/.gitconfig
-# https://git-scm.com
+# Config location: ~/.gitconfig
+# Help: https://git-scm.com/docs/git-config
 
 [alias]
     amend = commit --amend

@@ -1,4 +1,4 @@
-# Source in .zshrc
+# Config location: .zshrc
 
 alias grep='grep --color --extended-regexp'
 alias sed='sed -E'

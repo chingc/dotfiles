@@ -1,4 +1,4 @@
-# Source in .zshrc
+# Config location: .zshrc
 
 cprint() {
     # colors: https://jonasjacek.github.io/colors/

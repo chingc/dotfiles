@@ -1,4 +1,4 @@
-" Place under ~/.vimrc
+" Config location: ~/.vimrc
 
 set autoindent
 set expandtab

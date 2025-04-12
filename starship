@@ -1,5 +1,5 @@
-# Place under ~/.config/starship.toml
-# https://starship.rs
+# Config location: ~/.config/starship.toml
+# Help: https://starship.rs/config
 
 [status]
 disabled = false
