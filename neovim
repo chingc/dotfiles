@@ -1,0 +1,7 @@
+-- Config location: ~/.config/nvim/init.lua
+-- Help: https://neovim.io/doc/user/options.html
+
+vim.opt.expandtab = true
+vim.opt.ignorecase = true
+vim.opt.number = true
+vim.opt.showmatch = true
