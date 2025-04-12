@@ -10,6 +10,7 @@
 
 [core]
     autocrlf = false
+    editor = nvim
 
 [pull]
     ff = only
