@@ -1,4 +1,4 @@
--- Config location: ~/.config/nvim/init.lua
+-- Location: ~/.config/nvim/init.lua
 -- Help: https://neovim.io/doc/user/options.html
 
 vim.opt.expandtab = true

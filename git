@@ -1,4 +1,4 @@
-# Config location: ~/.gitconfig
+# Location: ~/.gitconfig
 # Help: https://git-scm.com/docs/git-config
 
 [alias]
@@ -22,8 +22,8 @@
     autoSetupRemote = true
 
 [rebase]
-    autosquash = true
+    autoSquash = true
 
 [user]
-    name = Ching Chow
+    name = Ching C
     email = ching64@proton.me
