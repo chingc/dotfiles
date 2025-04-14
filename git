@@ -22,7 +22,7 @@
     autoSetupRemote = true
 
 [rebase]
-    autosquash = true
+    autoSquash = true
 
 [user]
     name = Ching Chow
