@@ -1,4 +1,4 @@
-# Config location: .zshrc
+# Location: ~/.zshrc
 
 alias grep='grep --color --extended-regexp'
 alias sed='sed -E'
@@ -27,3 +27,5 @@ is_macos() {
         return 1
     fi
 }
+
+eval "$(starship init zsh)"

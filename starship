@@ -1,4 +1,4 @@
-# Config location: ~/.config/starship.toml
+# Location: ~/.config/starship.toml
 # Help: https://starship.rs/config
 
 [status]
