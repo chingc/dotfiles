@@ -12,6 +12,9 @@
     autocrlf = false
     editor = nvim
 
+[fetch]
+    prune = true
+
 [pull]
     ff = only
 
