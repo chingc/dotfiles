@@ -1,5 +1,7 @@
 # Location: ~/.zshrc
 
+export PATH="${HOME}/.local/bin:${PATH}"
+
 alias grep='grep --color --extended-regexp'
 alias sed='sed -E'
 alias la='ls -Fhla --color'
