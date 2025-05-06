@@ -31,3 +31,7 @@ is_macos() {
 }
 
 eval "$(starship init zsh)"
+
+# zsh completions
+autoload -Uz compinit
+compinit
