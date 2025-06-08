@@ -5,7 +5,7 @@
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "o3"
+      "model": "gpt-4.1"
     },
     "version": "2"
   },
